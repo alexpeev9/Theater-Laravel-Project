@@ -3,3 +3,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('location') }}'><i class='nav-icon la la-question'></i> Locations</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('ticket') }}'><i class='nav-icon la la-question'></i> Tickets</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('performance') }}'><i class='nav-icon la la-question'></i> Performances</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-question'></i> Users</a></li>

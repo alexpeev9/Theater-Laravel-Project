@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PerformanceRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,7 @@ class PerformanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:5|max:255',
-            'date' => 'required',
-            'locations' => 'required',
-            'tickets' => 'required',
-            'image'=>'required',
+            // 'name' => 'required|min:5|max:255'
         ];
     }
 
@@ -54,12 +50,7 @@ class PerformanceRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required'=> "Please provide valid name with more than 5 and less than 255 characters",
-            'date.required'=> "Please add a date!",
-            'locations.required'=> "Please add a location!",
-            'tickets.required'=> "Please add tickets",
-            'image.required'=> "Please add an image!",
-
+            //
         ];
     }
 }

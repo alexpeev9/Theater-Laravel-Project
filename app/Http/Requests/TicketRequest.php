@@ -27,8 +27,8 @@ class TicketRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:255',
-            'info' => 'required',
-            'price' => 'required|min:0'
+            // 'info' => 'required',
+            // 'price' => 'required|min:0'
         ];
     }
 
@@ -53,8 +53,8 @@ class TicketRequest extends FormRequest
     {
         return [
             'name.required'=> "Please provide valid name with more than 5 and less than 255 characters",
-            'info.required'=>"Please give information about the ticket",
-            'price.required'=> "Please add a price for the ticket!",
+            // 'info.required'=>"Please give information about the ticket",
+            // 'price.required'=> "Please add a price for the ticket!",
         ];
     }
 }
