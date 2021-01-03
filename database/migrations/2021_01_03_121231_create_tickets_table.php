@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToArticlesTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddImageToArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->string('image',255)->nullable();
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('info');
+            $table->decimal('price', 10, 2);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddImageToArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('image');
-        });
+        Schema::dropIfExists('tickets');
     }
 }

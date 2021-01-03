@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 
-class Article extends Model
+class Performance extends Model
 {
     use CrudTrait;
 
@@ -18,7 +19,7 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'articles';
+    protected $table = 'performances';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -38,14 +39,11 @@ class Article extends Model
             Storage::delete(Str::replaceFirst('storage/','public/', $obj->image));
         });
     }
-
-
-
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
         // destination path relative to the disk above
-        $destination_path = "public/articles";
+        $destination_path = "public/performances";
 
         // if the image was erased
         if ($value==null) {
@@ -84,9 +82,13 @@ class Article extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function tags()
+    public function locations()
     {
-        return $this->belongsToMany(Tag::class, 'article_tags','article_id', 'tag_id');
+        return $this->belongsToMany(Location::class, 'performance_locations','performance_id', 'location_id');
+    }
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class, 'performance_tickets','performance_id', 'ticket_id');
     }
     /*
     |--------------------------------------------------------------------------

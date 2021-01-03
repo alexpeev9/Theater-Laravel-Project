@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\PerformanceRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ArticleCrudController
+ * Class PerformanceCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ArticleCrudController extends CrudController
+class PerformanceCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+
 
     private function getFieldsData($show = FALSE) {
         return [
@@ -27,22 +28,30 @@ class ArticleCrudController extends CrudController
                 'type'=> 'text'
             ],
             [
-                'name' => 'content',
-                'label' => 'Content',
-                'type' => ($show ? "textarea": 'ckeditor'),
+                'name'=> 'date',
+                'label' => 'Date',
+                'type'=> 'date'
             ],
             [    // Select2Multiple = n-n relationship (with pivot table)
-                'label'     => "Tags",
+                'label'     => "Location",
                 'type'      => ($show ? "select": 'select2_multiple'),
-                'name'      => 'tags', // the method that defines the relationship in your Model
-// optional
-                'entity'    => 'tags', // the method that defines the relationship in your Model
-                'model'     => "App\Models\Tag", // foreign key model
+                'name'      => 'locations', // the method that defines the relationship in your Model
+                'entity'    => 'locations', // the method that defines the relationship in your Model
+                'model'     => "App\Models\Location", // foreign key model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [    // Select2Multiple = n-n relationship (with pivot table)
+                'label'     => "Ticket",
+                'type'      => ($show ? "select": 'select2_multiple'),
+                'name'      => 'tickets', // the method that defines the relationship in your Model
+                'entity'    => 'tickets', // the method that defines the relationship in your Model
+                'model'     => "App\Models\Ticket", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
             ],
             [
-                'label' => "Article Image",
+                'label' => "Performance Image",
                 'name' => "image",
                 'type' => 'image',
                 'crop' => true, // set to true to allow cropping, false to disable
@@ -50,6 +59,7 @@ class ArticleCrudController extends CrudController
             ]
         ];
     }
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -57,9 +67,9 @@ class ArticleCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Article::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('article', 'articles');
+        CRUD::setModel(\App\Models\Performance::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/performance');
+        CRUD::setEntityNameStrings('performance', 'performances');
 
         $this->crud->addFields($this->getFieldsData());
     }
@@ -90,7 +100,7 @@ class ArticleCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ArticleRequest::class);
+        CRUD::setValidation(PerformanceRequest::class);
 
         CRUD::setFromDb(); // fields
 
@@ -113,10 +123,10 @@ class ArticleCrudController extends CrudController
     }
     protected function setupShowOperation()
     {
-    // by default the Show operation will try to show all columns in the db table,
-    // but we can easily take over, and have full control of what columns are shown,
-    // by changing this config for the Show operation
-    $this->crud->set('show.setFromDb', false);
-    $this->crud->addColumns($this->getFieldsData(TRUE));
+        // by default the Show operation will try to show all columns in the db table,
+        // but we can easily take over, and have full control of what columns are shown,
+        // by changing this config for the Show operation
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
     }
 }
