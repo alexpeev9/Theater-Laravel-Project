@@ -26,7 +26,9 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|min:5|max:255',
+            'address' => 'required|min:5|max:255',
+            'city' => 'required|min:3|max:255',
         ];
     }
 
@@ -50,7 +52,9 @@ class LocationRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required'=> "Please provide valid name with more than 5 and less than 255 characters",
+            'address.required'=> "Please provide valid address with more than 5 and less than 255 characters",
+            'city.required'=> "Please provide valid city with more than 3 and less than 255 characters",
         ];
     }
 }

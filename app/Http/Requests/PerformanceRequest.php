@@ -26,7 +26,12 @@ class PerformanceRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required|min:5|max:255',
+            'info' => 'required',
+            'date' => 'required',
+            'locations' => 'required',
+            'tickets' => 'required',
+            'image'=>'required',
         ];
     }
 
@@ -50,7 +55,13 @@ class PerformanceRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'title.required'=> "Please provide valid name with more than 5 and less than 255 characters",
+            'info.required'=>"Please give information about the ticket",
+            'date.required'=> "Please add a date!",
+            'locations.required'=> "Please add a location!",
+            'tickets.required'=> "Please add tickets!",
+            'image.required'=> "Please add an image!",
+
         ];
     }
 }
