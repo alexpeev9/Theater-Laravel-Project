@@ -21,10 +21,23 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <h3>Hello</h3>
-        <a class="btn btn-primary" href="{{ url('performances') }}" > Performances</a>
-        <a class="btn btn-primary" href="{{ url('tickets')}}" > Tickets</a>
-        <a class="btn btn-primary" href="{{ url('locations') }}" > Locations</a>
+    <body class="d-flex justify-content-center">
+        <div class="w-50 pt-3">
+            <table class="table  table-striped table-primary align-middle">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">View More</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @include('layouts.partials.locations.all-locations')
+                </tbody>
+            </table>
+            <a class="btn btn-secondary" href="{{ url('/')}}" > Home</a>
+        </div>
     </body>
 </html>

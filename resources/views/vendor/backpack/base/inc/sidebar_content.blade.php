@@ -5,3 +5,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('performance') }}'><i class='nav-icon la la-question'></i> Performances</a></li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-question'></i> Users</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('performance_locations') }}'><i class='nav-icon la la-question'></i> Perform-Locations</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('performance_tickets') }}'><i class='nav-icon la la-question'></i> Performa-Tickets</a></li>
