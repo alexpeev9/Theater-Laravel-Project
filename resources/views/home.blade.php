@@ -23,6 +23,7 @@
     </head>
     <body class="antialiased">
         <h3>Hello</h3>
+        <a class="btn btn-primary" href="{{ url('search') }}" > Search Performance</a>
         <a class="btn btn-primary" href="{{ url('performances') }}" > Performances</a>
         <a class="btn btn-primary" href="{{ url('tickets')}}" > Tickets</a>
         <a class="btn btn-primary" href="{{ url('locations') }}" > Locations</a>

@@ -8,14 +8,40 @@ use App\Models\Performance;
 use App\Models\Location;
 use App\Models\Ticket;
 use Illuminate\Routing\Controller as BaseController;
-
+use Illuminate\Http\Request;
 
 class PerformanceController extends BaseController
 {
+    // public function search(Request $request){
+    //     // Get the search value from the request
+    //     $search = $request->input('search');
+
+    //     // Search in the title and body columns from the posts table
+    //     $performances = Performance::query()
+    //         ->where('title', 'LIKE', "%{$search}%")
+    //         ->get();
+
+    //     // Return the search view with the resluts compacted
+    //     return view('layouts/partials/performances/search', compact('performances'));
+    // }
+
+    public function searchByDate(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search');
+
+        // Search in the title and body columns from the posts table
+        $performances = Performance::query()
+            ->where('date', 'LIKE', "%{$search}%")
+            ->get();
+
+        // Return the search view with the resluts compacted
+        return view('layouts/partials/performances/search', compact('performances'));
+    }
+
     public function getall()
     {
         $performances = Performance::all();
-        return view('layouts/performance',array('performances'=>$performances));
+        return view('layouts/performance',compact('performances'));
     }
     public function getById($id)
     {
