@@ -6,7 +6,6 @@ use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Request as Input;
-use App\Models\Performance;
 
 
 Route::get('/', function () {
