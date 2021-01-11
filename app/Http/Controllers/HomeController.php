@@ -10,9 +10,9 @@ use Illuminate\Routing\Controller as BaseController;
 
 class HomeController extends BaseController
 {
+    // for home page so that users can see performances,locations,tickets in one place
     public function getAllPerformances()
     {
-        //$hello = "Hello";
         $performances = Performance::all();
         $locations = Location::all();
         $tickets = Ticket::all();

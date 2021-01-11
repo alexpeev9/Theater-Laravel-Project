@@ -14,7 +14,7 @@
                                 <p class="card-text text-white h5 p-2">City: {{$loction->city}}</p>
                                 <p class="card-text text-white h5 p-2">Address: {{$loction->address}}</p>
                                 <div class="d-flex justify-content-center align-items-center pb-3">
-                                    <a class="btn btn-white bg-white text-danger" href="{{ url('loctions/'.$loction->id) }}"> View More</a>
+                                    <a class="btn btn-white bg-white text-danger" href="{{ url('locations/'.$loction->id) }}"> View More</a>
                                 </div>
                             </div>
                           </div>

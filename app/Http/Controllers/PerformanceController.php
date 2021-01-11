@@ -23,8 +23,7 @@ class PerformanceController extends BaseController
         $performance = Performance::where('id', $id)
                         ->first();
 
-        //////////////TICKETS
-
+        //TICKETS
         //Get Id's of Matching Tickets
         $performance_tickets = Performance_tickets::where('performance_id', $id)
                         ->pluck('ticket_id');
@@ -36,8 +35,7 @@ class PerformanceController extends BaseController
         $tickets[] = Ticket::all()->where('id', (int)$performance_ticket);
         }
 
-        ////////////////////Locations
-
+        //Locations
         //Get Id's of Matching Tickets
         $performance_locations = Performance_locations::where('performance_id', $id)
                         ->pluck('location_id');

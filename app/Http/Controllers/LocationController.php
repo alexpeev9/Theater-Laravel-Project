@@ -12,9 +12,7 @@ class LocationController extends BaseController
 {
     public function getall()
     {
-        //$hello = "Hello";
         $locations = Location::all();
-        //return view('layouts/location/',array('locations'=>$locations),['hello' => $hello]);
         return view('layouts/location',array('locations'=>$locations));
     }
     public function getById($id)

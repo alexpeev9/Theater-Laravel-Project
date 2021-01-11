@@ -1,11 +1,8 @@
 @extends('layouts.navigation.template')
 @section('content')
         <div id="wrapper" class="container">
-			<!-- Page Content -->
 			<div id="page" class="row">
-				<!-- Content Area -->
 				<div id="content">
-					<!-- Main Content Area -->
 					<section class="row">
                         @foreach($tickets as $ticket)
                         <div class="d-flex justify-content-center col-3 py-3">
