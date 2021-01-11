@@ -12,32 +12,6 @@ use Illuminate\Http\Request;
 
 class PerformanceController extends BaseController
 {
-    // public function search(Request $request){
-    //     // Get the search value from the request
-    //     $search = $request->input('search');
-
-    //     // Search in the title and body columns from the posts table
-    //     $performances = Performance::query()
-    //         ->where('title', 'LIKE', "%{$search}%")
-    //         ->get();
-
-    //     // Return the search view with the resluts compacted
-    //     return view('layouts/partials/performances/search', compact('performances'));
-    // }
-
-    public function searchByDate(Request $request){
-        // Get the search value from the request
-        $search = $request->input('search');
-
-        // Search in the title and body columns from the posts table
-        $performances = Performance::query()
-            ->where('title', 'LIKE', "%{$search}%")
-            ->get();
-
-        // Return the search view with the resluts compacted
-        return view('layouts/performance',compact('performances'));
-    }
-
     public function getall()
     {
         $performances = Performance::all();
@@ -48,7 +22,6 @@ class PerformanceController extends BaseController
         //Get Current Location By Id
         $performance = Performance::where('id', $id)
                         ->first();
-
 
         //////////////TICKETS
 
@@ -76,5 +49,36 @@ class PerformanceController extends BaseController
         $locations[] = Location::all()->where('id', (int)$performance_location);
         }
         return view('layouts.partials.performances.current-performance', compact('performance','tickets','locations'));
+    }
+
+    public function searchByDate(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search-date');
+
+        // Search in the title and body columns from the posts table
+        $performances = Performance::query()
+            ->where('date', 'LIKE', "%{$search}%")
+            ->get();
+
+        // Return the search view with the resluts compacted
+        return view('layouts/performance', compact('performances'));
+    }
+
+    public function searchByTitle(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search-title');
+
+        // Search in the title and body columns from the posts table
+        $performances = Performance::query()
+            ->where('title', 'LIKE', "%{$search}%")
+            ->get();
+
+        // Return the search view with the resluts compacted
+        return view('layouts/performance',compact('performances'));
+    }
+
+    public function searchByLocation(Request $request){
+        $locations = Location::all();
+        return view('layouts/search',compact('locations'));
     }
 }

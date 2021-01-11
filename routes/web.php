@@ -17,12 +17,10 @@ Route::get('/performances',[PerformanceController::class,'getall']);
 //     return view('layouts/performance');
 // });
 
-Route::get('/extended-search', function () {
-    return view('layouts.search');
-});
 
-// Route::get('/search',[PerformanceController::class,'searchCurrentPerformances']);
-Route::get('/search',[PerformanceController::class,'searchByDate'])->name('search');
+Route::get('/extended-search',[PerformanceController::class,'searchByLocation']);
+Route::get('/search-date',[PerformanceController::class,'searchByDate'])->name('search-date');
+Route::get('/search-title',[PerformanceController::class,'searchByTitle'])->name('search-title');
 Route::get('/performances',[PerformanceController::class,'getall']);
 Route::get('performances/{id}', [PerformanceController::class,'getById']);
 

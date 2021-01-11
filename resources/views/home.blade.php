@@ -1,16 +1,8 @@
 @extends('layouts.navigation.template')
 @section('content')
-        {{-- <div class="container text-white justify-content-center w-50">
-                <h1 style="color:darkred;font-size: 3rem">Welcome to Theater Project</h1>
-                <h1>Due to Covid Actors will not play in the performances. In their place will be put projectors to broadcast live their performance in priavte theater</h1>
-                <img src="{{ ('images/camera.jpg') }}" alt="camera">
-        </div> --}}
-        <!-- Page Wrapper -->
 		<div id="wrapper" class="container">
-
 			<!-- Page Content -->
 			<div id="page" class="row">
-
 				<!-- Content Area -->
 				<div id="content" class="8u skel-cell-important">
 
