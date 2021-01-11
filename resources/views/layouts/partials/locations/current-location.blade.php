@@ -1,5 +1,10 @@
 @extends('layouts.navigation.template-current')
 @section('content')
+    <header>
+        <link rel="stylesheet" href="css/skel-noscript.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-desktop.css" />
+    </header>
     <div class="d-flex justify-content-center">
         <div class="w-50 pt-3">
             <table class="table  table-striped table-primary align-middle">

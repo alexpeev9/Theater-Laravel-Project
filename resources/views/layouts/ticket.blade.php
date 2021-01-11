@@ -1,23 +1,27 @@
 @extends('layouts.navigation.template')
 @section('content')
-    <div class="d-flex justify-content-center">
-        <div class="w-50 pt-3">
-            <table class="table  table-striped table-primary align-middle">
-                <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Info</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">View More</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @include('layouts.partials.tickets.all-tickets')
-                </tbody>
-            </table>
-            <a class="btn btn-secondary" href="{{ url('/')}}" > Home</a>
+        <div id="wrapper" class="container">
+			<!-- Page Content -->
+			<div id="page" class="row">
+				<!-- Content Area -->
+				<div id="content">
+					<!-- Main Content Area -->
+					<section class="row">
+                        @foreach($tickets as $ticket)
+                        <div class="d-flex justify-content-center col-3 py-3">
+                            <div class="card box-shadow  d-flex bg-danger">
+                                <p class="card-text text-white h5 p-2">Type: {{$ticket->name}}</p>
+                                <p class="card-text text-white h5 p-2">Info: {{$ticket->info}}</p>
+                                <p class="card-text text-white h5 p-2">Price: {{$ticket->price}} $</p>
+                                <div class="d-flex justify-content-center align-items-center pb-3">
+                                    <a class="btn btn-white bg-white text-danger" href="{{ url('tickets/'.$ticket->id) }}"> View More</a>
+                                </div>
+                            </div>
+                          </div>
+                        @endforeach
+					</section>
+				</div>
+            </div>
         </div>
-    </div>
 @endsection
 

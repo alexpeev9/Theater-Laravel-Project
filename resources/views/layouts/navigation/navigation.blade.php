@@ -4,7 +4,7 @@
             <div id="logo">
                 <h1>
                 <a href="{{ url('/') }}">
-                    <img src="{{ ('images/logo.png') }}" style="width:4rem;height:2rem" class="margin-bottom:1rem" alt="logo">
+                    <img src="{{ asset('images/logo.png') }}" style="width:4rem;height:2rem" class="margin-bottom:1rem">
                     Theather Project
                 </a>
                 </h1>

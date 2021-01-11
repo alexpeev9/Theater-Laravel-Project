@@ -5,14 +5,15 @@
         .active{
             background-color: green;
             display: inline-block;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            padding: 1rem;
+            outline: none;
         }
         .element{
             background-color: red;
             display: inline-block;
+            padding: 1rem;
             padding-top: 1rem;
-            padding-bottom: 1rem;
+            outline: none;
         }
         .locationButton{
             background-color: blue;
@@ -20,36 +21,45 @@
             padding: 1rem;
             color: white;
         }
+        .searchWrapper{
+            border: 1px solid green;
+            background-color: green;
+            padding: 2rem;
+            width: 45rem;
+            height: 10rem;
+        }
+        .button:focus{
+            outline: none;
+        }
     </style>
 </head>
 <div id="wrapper" class="container">
     <div id="page" class="row">
         <!-- Send Help -->
         <div id="content" class="8u skel-cell-important">
-            <div class="offset-2">
-                <h3>Search by Name:</h3>
-                <div class="mb-3">
+            <div class="offset-4">
+                <div>
                     <button id="buttonTitle" class="active" onclick="showTitle()">Name of Performance</button>
                     <button id="buttonDate" class="element" onclick="showDate()">Date</button>
                     <button id="buttonLocation" class="element" onclick="showLocation()">Location</button>
                 </div>
-                <div id="searchTitle">
+                <div class="searchWrapper" id="searchTitle">
                     <form action="{{ route('search-title') }}" method="GET" class="d-inline align-items-start">
-                        <label>Search by Title</label>
+                        <label class="text-white">Search by Title</label>
                         <input class="input-group-text d-inline" style="width: 40rem" type="text" name="search-title" required/>
                         <button  class="btn btn-primary" type="submit" >Search</button>
                     </form>
                 </div>
 
-                <div id="searchDate" style="display: none">
+                <div class="searchWrapper" id="searchDate" style="display: none">
                     <form action="{{ route('search-date') }}" method="GET" class="d-inline align-items-start">
-                        <label>Search by Date</label>
+                        <label class="text-white">Search by Date</label>
                         <input class="input-group-text d-inline" style="width: 40rem" type="date" name="search-date" required/>
                         <button  class="btn btn-primary" type="submit" >Search</button>
                     </form>
                 </div>
 
-                <div id="searchLocation" style="display: none">
+                <div class="searchWrapper" id="searchLocation" style="display: none">
                     @foreach($locations as $location)
                         <a class="locationButton" href="{{ url('locations/'.$location->id) }}" > {{$location->name}}</a>
                     @endforeach
