@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-		<title>Home</title>
-        @include('layouts.navigation.header')
-	</head>
-    <body class="antialiased">
-        @include('layouts.navigation.navigation')
+@extends('layouts.navigation.template-current')
+@section('content')
     <div class="d-flex justify-content-center">
         <div class="w-50 pt-3">
             <table class="table  table-striped table-primary align-middle">
                 <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="koti">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">City</th>
                     <th scope="col">Address</th>
@@ -49,5 +43,4 @@
             <a class="btn btn-secondary" href="{{ url('/')}}" > Home</a>
         </div>
     </div>
-    </body>
-</html>
+@endsection

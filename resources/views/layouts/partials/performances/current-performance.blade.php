@@ -1,4 +1,4 @@
-@extends('layouts.navigation.template')
+@extends('layouts.navigation.template-current')
 @section('content')
     <div class="d-flex justify-content-center">
         <div class="w-50 pt-3">

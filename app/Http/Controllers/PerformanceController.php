@@ -31,11 +31,11 @@ class PerformanceController extends BaseController
 
         // Search in the title and body columns from the posts table
         $performances = Performance::query()
-            ->where('date', 'LIKE', "%{$search}%")
+            ->where('title', 'LIKE', "%{$search}%")
             ->get();
 
         // Return the search view with the resluts compacted
-        return view('layouts/partials/performances/search', compact('performances'));
+        return view('layouts/performance',compact('performances'));
     }
 
     public function getall()
@@ -75,7 +75,6 @@ class PerformanceController extends BaseController
         {
         $locations[] = Location::all()->where('id', (int)$performance_location);
         }
-
         return view('layouts.partials.performances.current-performance', compact('performance','tickets','locations'));
     }
 }
