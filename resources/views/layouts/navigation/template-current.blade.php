@@ -11,6 +11,8 @@
         <link rel="stylesheet" href=" {{ asset('assets/css/skel-noscript.css') }}" />
         <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}" />
         <link rel="stylesheet" href=" {{ asset('assets/css/style-desktop.css') }}" />
+        <link rel="icon" href="{{ asset('images/cloud.png') }}" type="image/gif" sizes="16x16">
+        <title>Theater Project</title>
 	</head>
     <body class="antialiased">
         @include('layouts.navigation.navigation')
